@@ -1,0 +1,77 @@
+<div class="directive-page panel panel-default">
+	<div class="panel-heading">Directive</div>
+	<div class="panel-body">
+		Angualr自带指令可以参照api，里面有详细说明。
+		<hr>
+		这里详细讲解下自定义directive
+		<div class="panel panel-default">
+			<div class="panel-heading">自定义directive的一些说明</div>
+			<div class="panel-body">
+				<strong>What are Directives?</strong><br> At a high level,
+				directives are markers on a DOM element (such as an attribute,
+				element name, comment or CSS class) that tell AngularJS's HTML
+				compiler ($compile) to attach a specified behavior to that DOM
+				element or even transform the DOM element and its children. <br>
+				<hr />
+				<p>指令支持以下几种写法：(以ngBind为例)</p>
+				model : <input ng-model='name'> <br /> ng-bind : <span
+					ng-bind="name"></span> <br /> ng:bind : <span ng:bind="name"></span>
+				<br /> ng_bind : <span ng_bind="name"></span> <br /> data-ng-bind :
+				<span data-ng-bind="name"></span> <br /> x-ng-bind : <span
+					x-ng-bind="name"></span> <br />
+				<hr />
+				<p>restrict属性说明:</p>
+				appModule.directive('hello', function() {<br>
+				&nbsp;&nbsp;return {<br> &nbsp;&nbsp;&nbsp;&nbsp;restrict: 'E',<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;template: 'Hello'<br> };<br>
+				<ul>
+					<li>'A' - 声明为属性</li>
+					<li>'E' - 声明为元素</li>
+					<li>'C' - 声明为样式</li>
+					<li>'M' - 声明为注释</li>
+					<li>'AEC' - 同时声明为属性元素和样式</li>
+				</ul>
+				<p>其他属性在实例中体现</p>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">实例</div>
+			<div class="panel-body">
+				<my-eg title="myHello"> E : <my-hello></my-hello> A : <span
+					my-hello></span> C : <span class=my-hello></span> </my-eg>
+				<my-eg title="关于属性scope">
+				<p>在scope中有3中方式与父级scope通信：</p>
+				<p>"="：指令中的属性取值为controller中对应$scope上属性的取值，可用于双向数据的绑定</p>
+				<p>"@"：指令中的取值为html中的字面量/直接量,其值只能是String类型。</p>
+				<p>"&"：指令中的取值为Contoller中对应$scope上的属性，但是这属性必须为一个函数回调</p>
+				<hr>
+				<my-scope my-name="Gavin" address="ads" get-age="age()"
+					ng-init="ads='ChengDu';"></my-scope> </my-eg>
+				<my-eg title="link函数">
+				<div class="row">
+					<div class="col-md-3" ng-repeat="img in imgs">
+						<imgbox img="img"></imgbox>
+					</div>
+				</div>
+				<div align="center">
+					<button class="btn btn-default" ng-click="addMore()">Add
+						More</button>
+				</div>
+				</my-eg>
+
+				<my-eg title="controller">
+					<my-tabs>
+					  <my-panel title="Hello">
+					    <h4>Hello</h4>
+					    <p>This is hello page.</p>
+					  </my-panel>
+					  <my-panel title="World">
+					    <h4>World</h4>
+					    <em>This is world page.</em>
+					  </my-panel>
+					</my-tabs>
+				</my-eg>
+			</div>
+		</div>
+	</div>
+</div>

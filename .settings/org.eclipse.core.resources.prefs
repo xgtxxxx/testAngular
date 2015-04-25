@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//templates/messages.html=UTF-8
+encoding//views/base.html=UTF-8
+encoding//views/controller.html=UTF-8
+encoding//views/declare.html=UTF-8
+encoding//views/directive.html=UTF-8
+encoding//views/home.html=UTF-8
+encoding//views/others.html=UTF-8
+encoding//views/serviceApi.html=UTF-8
+encoding//views/serviceCustom.html=UTF-8
+encoding/<project>=UTF-8

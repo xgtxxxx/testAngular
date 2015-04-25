@@ -1,0 +1,52 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		Custom Service
+	</div>
+	<div class="panel-body">
+		AngularJ创建服务有三种方式：Factory，Service，Provider<br>
+		详情：
+		<a href="http://www.tuicool.com/articles/rABfUvm">http://www.tuicool.com/articles/rABfUvm</a>
+		<hr>
+		<div class="panel panel-default">
+			<div class="panel-heading">Factory Service</div>
+			<div class="panel-body">
+				<div class="col-md-2 text-right">
+					<label class="form-label">Greeting : </label>
+				</div>
+				<div class="col-md-4">
+					<input class="form-control" ng-model="hello"></input>
+				</div>
+				<div class="col-md-6">
+					<button class="btn btn-default" ng-click="openModal()">Open modal</button>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">Service Service ($cookie service dependence ngCookies)</div>
+			<div class="panel-body">
+				<p>The cookie value is : {{cookie}}</p>
+				<div class="col-md-2 text-right">
+					<label class="form-label">Cookie Value : </label>
+				</div>
+				<div class="col-md-4">
+					<input class="form-control" ng-model="value"></input>
+				</div>
+				<div class="col-md-6">
+					<button class="btn btn-default" ng-click="putCookie()">Put value in cookie as session type</button>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">Provider Service</div>
+			<div class="panel-body">
+				<div class="col-md-4">
+					<input class="form-control" ng-model="msg"></input>
+				</div>
+				<div class="col-md-8">
+					<button class="btn btn-default" ng-click="alert()">Alert</button>
+					<button class="btn btn-default" ng-click="confirm()">Confirm</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

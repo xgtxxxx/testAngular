@@ -1,0 +1,12 @@
+<script type="text/ng-template" id="confirmTemplate">
+	<div class="msg alert-template">
+		<div class="modal-header">{{params.title}}</div>
+		<div class="modal-body">
+			{{params.info}}
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default"  ng-click="ok()">Ok</button>
+			<button type="button" class="btn btn-default"  ng-click="cancel()">Cancel</button>
+		</div>
+	</div>
+</script>

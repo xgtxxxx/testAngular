@@ -1,0 +1,94 @@
+<my-eg title="Others"> <my-eg title="简易购入车：$watch">
+<div class="form-group clearfix">
+	<form name="goodForm" novalidate>
+		<div class="col-sm-1 control-label text-right">物品:</div>
+		<div class="col-sm-2 text-left">
+			<input class="form-control" ng-model="goods.name" required />
+		</div>
+
+		<div class="col-sm-1 control-label text-right">单价:</div>
+		<div class="col-sm-2 text-left">
+			<input type="number" class="form-control" ng-model="goods.amount"
+				required />
+		</div>
+
+		<div class="col-sm-1 control-label text-right">数量:</div>
+		<div class="col-sm-2 text-left">
+			<input type="number" class="form-control" ng-model="goods.count"
+				required />
+		</div>
+		<div class="col-sm-3">
+			<button class="btn btn-default" ng-click="addGoods(goodForm)">Add</button>
+			<button class="btn btn-default" ng-click="reset()">Reset</button>
+		</div>
+	</form>
+</div>
+<hr />
+<table class="table table-default">
+	<thead>
+		<tr>
+			<th width="25%">物品</th>
+			<th width="25%">价格</th>
+			<th width="25%">数量</th>
+			<th width="25%">操作</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="item in cart.items">
+			<td>{{item.name}}</td>
+			<td>{{item.amount}}</td>
+			<td>{{item.count}}</td>
+			<td><a ng-click="removeGoods($index)">Remove</a></td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="4" class="text-right">总价:{{cart.totalAmount}}</td>
+		</tr>
+	</tfoot>
+</table>
+</my-eg> <my-eg title="Form验证:">
+<form name="validForm" novalidate>
+	<div class="form-horizontal">
+		<div class="form-group">
+			<div class="col-sm-2 control-label text-right">Email:</div>
+			<div class="col-sm-6 text-left">
+				<input name="email" type="email" class="form-control" ng-model="email" required/>
+			</div>
+			<div class="col-sm-4 error-message"
+				ng-messages="validForm.email.$untouched || validForm.email.$error"
+				ng-messages-include="templates/messages.html"></div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-2 control-label text-right">Number:</div>
+			<div class="col-sm-6 text-left">
+				<input name="number" type="number" class="form-control" ng-model="number" required/>
+			</div>
+			<div class="col-sm-4 error-message"
+				ng-messages="validForm.number.$untouched || validForm.number.$error"
+				ng-messages-include="templates/messages.html"></div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-2 control-label text-right">Min length:</div>
+			<div class="col-sm-6 text-left">
+				<input name="minlength" class="form-control" ng-model="minlength" ng-minlength="6" required/>
+			</div>
+			<div class="col-sm-4 error-message"
+				ng-messages="validForm.minlength.$untouched || validForm.minlength.$error"
+				ng-messages-include="templates/messages.html"></div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-2 control-label text-right">Max length:</div>
+			<div class="col-sm-6 text-left">
+				<input name="maxlength" class="form-control" ng-model="maxlength" ng-maxlength="6" required/>
+			</div>
+			<div class="col-sm-4 error-message"
+				ng-messages="validForm.maxlength.$untouched || validForm.maxlength.$error"
+				ng-messages-include="templates/messages.html"></div>
+		</div>
+		<div class="form-group text-center">
+			<button class="btn btn-default" ng-disabled="validForm.$invalid">Save</button>
+		</div>
+	</div>
+</form>
+</my-eg> </my-eg>

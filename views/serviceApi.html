@@ -1,0 +1,163 @@
+<div class="serviceApi-page panel panel-default">
+	<div class="panel-heading" id="anchor-top">Api Service</div>
+	<div class="panel-body">
+		<div class="panel panel-default" ng-controller="AnchorScrollCtrl">
+			<div class="panel-heading">$anchorScroll:</div>
+			<div class="panel-body">
+				<a href="" ng-click="gotoBottom()"> Go to bottom </a>
+			</div>
+		</div>
+		<div class="panel panel-default animate-part"
+			ng-controller="AnimateCtrl">
+			<div class="panel-heading">$animate:</div>
+			<div class="panel-body">
+				<div ng-if="bool" class="fade">Fade me in out</div>
+				<button ng-click="bool=true">Fade In!</button>
+				<button ng-click="bool=false">Fade Out!</button>
+				<hr>
+				<button class="btn btn-default" ng-click="remove()">Remove
+					First</button>
+				<button class="btn btn-default" ng-click="addFirst()">Add
+					First</button>
+				<button class="btn btn-default" ng-click="setColor()">Add
+					red class</button>
+				<ul class="slide-box">
+					<li class="slide" ng-repeat="item in items">{{item.name}}</li>
+				</ul>
+
+				<hr>
+				<p>以下是支持animate的directive</p>
+				<img alt="" src="images/animate.png">
+			</div>
+		</div>
+		<div class="panel panel-default" ng-controller="CacheFactoryCtrl">
+			<div class="panel-heading">$cacheFactory:</div>
+			<div class="panel-body">
+				<input ng-model="cacheInfo.key" placeholder="Key"> <input
+					ng-model="cacheInfo.value" placeholder="Value">
+				<button ng-click="putCache()">Put Cache</button>
+				<br>
+				<hr>
+				<ul>
+					<li ng-repeat="key in keys">key : {{key}},
+						value:{{cacheFactory.get(key)}}</li>
+				</ul>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">$document:</div>
+			<div class="panel-body">
+				$document就是jquery中对window.document的封装，用法见jquery。</div>
+		</div>
+		<div class="panel panel-default" ng-controller="FilterCtrl">
+			<div class="panel-heading">$filter:</div>
+			<div class="panel-body">
+				<p>小写-大写：</p>
+				<p>before filter: {{ originalText }}</p>
+				<p>after filter: {{ filteredText }}</p>
+				<hr>
+				<p>人民币：</p>
+				<p ng-init="money=1200.00">before filter: {{ money }}</p>
+				<p>after filter: {{ money | currency : '￥'}}</p>
+				<hr>
+				<p>时间：</p>
+				<p>before filter: {{ date }}</p>
+				<p>after filter: {{ date | date : 'yyyy-MM-dd hh:mm:ss EEEE'}}</p>
+				<hr>
+				<p>模糊过滤：</p>
+
+				<div class="row">
+					<div class="col-md-3 search-field">
+						Any: <input ng-model="search.$">
+					</div>
+					<div class="col-md-3 search-field">
+						Name only: <input ng-model="search.name">
+					</div>
+					<div class="col-md-3 search-field">
+						Phone only: <input ng-model="search.phone">
+					</div>
+				</div><br>
+				<div class="row">
+					<div class="col-md-3 search-field">
+						Equality: <input type="checkbox" ng-model="strict">
+					</div>
+					<div class="col-md-3 search-field">
+						Age>=<input ng-model="filterAge">
+					</div>
+				</div>
+				<table id="searchObjResults" width="100%">
+					<tr>
+						<th>Name</th>
+						<th>Phone</th>
+						<th>Age</th>
+					</tr>
+					<tr
+						ng-repeat="friendObj in friends | filter:search:strict|filter:func">
+						<td>{{friendObj.name}}</td>
+						<td>{{friendObj.phone}}</td>
+						<td>{{friendObj.age}}</td>
+					</tr>
+				</table>
+				<hr>
+				<p>排序:orderBy:'age'</p>
+				<table id="searchObjResults" width="100%">
+					<tr>
+						<th>Name</th>
+						<th>Phone</th>
+						<th>Age</th>
+					</tr>
+					<tr ng-repeat="friendObj in friends | orderBy:'age'">
+						<td>{{friendObj.name}}</td>
+						<td>{{friendObj.phone}}</td>
+						<td>{{friendObj.age}}</td>
+					</tr>
+				</table>
+				<hr>
+				<p>自定义filter：返回偶数item</p>
+				<table id="searchObjResults" width="100%">
+					<tr>
+						<th>Name</th>
+						<th>Phone</th>
+						<th>Age</th>
+					</tr>
+					<tr ng-repeat="friendObj in friends | odditems">
+						<td>{{friendObj.name}}</td>
+						<td>{{friendObj.phone}}</td>
+						<td>{{friendObj.age}}</td>
+					</tr>
+				</table>
+				<hr>
+				<p>Angular已经提供的Filter:(详见api)</p>
+				<img alt="" src="images/filter.png">
+			</div>
+		</div>
+		<div class="panel panel-default" ng-controller="HttpCtrl">
+			<div class="panel-heading">$http&HttpInterceptor</div>
+			<div class="panel-body">
+				{{hello}}
+			</div>
+		</div>
+		<div class="panel panel-default" ng-controller="IntervalCtrl">
+			<div class="panel-heading">$interval</div>
+			<div class="panel-body">
+				count : <font color='red'>{{counter.sec}}:{{counter.mili}}</font>
+			    <button type="button" ng-click="start()">start</button>
+			    <button type="button" ng-click="stop()">Stop</button>
+			    <button type="button" ng-click="reset()">reset</button>
+			    
+			    <button type="button" ng-click="go()">go</button>
+			</div>
+		</div>
+		<div class="panel panel-default" ng-controller="StateCtrl">
+			<div class="panel-heading">$state(dependencies ui-router)</div>
+			<div class="panel-body">
+				<a role="button" ng-click="goHome()">Go Home</a>
+			</div>
+		</div>
+	</div>
+	<div class="panel-footer">
+		<div id="anchor-bottom">
+			<a href="" ng-click="gotoTop()"> Go to top </a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,25 @@
+<div class="declare-page panel panel-default" >
+	<div class="panel-heading">{{title}}</div>
+	<div class="panel-body">
+		<strong>一、Angualr app构建(详见index.html)</strong>
+		<ul>
+			<li>引入Angular核心包angular.js。</li>
+			<li>在body（或其他elements）上标注ng-app="angularApp"，声明app的作用域。</li>
+			<li>申明ng-view:展示类容的地方，适用于多路由的情况。</li>
+			<li>申明ng-controller：逻辑处理的地方。</li>
+		</ul>
+		
+		<strong>二、Angualr应用中的一些说明</strong>
+		<ul>
+			<li>Angular的app必须包含ng-app=""</li>
+			<li>每个app的申明都是一个单例，不能多次声明。</li>
+			<li>在声明app的时候，需要把该app需要依赖的所有服务都引入。
+				<br>
+				eg: angular.module('angularApp', ['ui.router']);
+				<br>
+				这里声明了app：angularApp,该app需要ui.router这个服务，所以在声明的时候就把这个服务引入。
+			</li>
+			<li>angular的所有服务都采用依赖注入的方式</li>
+		</ul>
+	</div>
+</div>

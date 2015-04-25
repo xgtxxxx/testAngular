@@ -1,0 +1,53 @@
+<div class="base-page panel panel-default">
+	<div class="panel-heading">{{title}}</div>
+	<div class="panel-body">
+	<p><a href="https://docs.angularjs.org/api?PHPSESSID=cae8e98e7ca559b4605d75c813b358ee">Angular api (需要代理或者翻墙)</a></p>
+	<p>
+		Angular基本用法在官网api上面都有实例，这里只是截取了部分。
+	</p>
+	<strong>Examples:</strong>
+		<ul>
+			<li>
+				数据绑定：<br>
+				1、ng-model:<input ng-model="world"/><br>
+				2、\{\{\}\}: Hello {{world}}<br>
+				3、ng-bind : Hello <span ng-bind="world"></span><br>
+				2和3区别：两者的却别在于html没有加载完毕{{txt}}回直接显示到页面，直到angular渲染该绑定数据（这种行为有可能将{{binding}}让用户看到）；而ng-bind则是在angular渲染完毕后将数据显示
+			</li>
+			<li>
+				ng-repeat:
+				<select>
+					<option ng-repeat="item in items">{{item.name}}</option>
+				</select>
+			</li>
+			<li>
+				ng-show/ng-if:<br>
+				<label>Click me: <input type="checkbox" ng-model="checked" ng-init="checked=false" />
+				<button class="btn btn-default" ng-click="showDiff()">ShowDiff</button></label><br/>
+				ng-if:
+				<span ng-if="checked">
+				  <span id="ngIf">This is removed when the checkbox is unchecked.</span>
+				</span><br>
+				ng-show:
+				<span ng-show="checked">
+				  <span id="ngShow">This is removed when the checkbox is unchecked.</span>
+				</span>
+				<br>
+				区别：ngIf differs from ngShow and ngHide in that ngIf completely removes and recreates the element in the DOM rather than changing its visibility via the display css property
+			</li>
+			<li>
+				ng-src/ng－init:
+				
+				img:src="images/{ {imgUrl} }.png":
+				<img ng-src="images/{{imgUrl}}.png" ng-init="imgUrl='hx1'"/>
+			</li>
+			<li>
+				事件:
+				<p>ng-click:ng-click="function(params)"</p>
+				a标签 : <a ng-click="fireClick('bind a')">click me</a><br>
+				button : <button class="btn btn-default" ng-click="fireClick('bind button')">click me</button><br>
+				span : <span ng-click="fireClick('bind span')">click me</span>
+			</li>
+		</ul>
+	</div>
+</div>

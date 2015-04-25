@@ -1,0 +1,33 @@
+.directive-page {
+	.eg-body {
+		line-height: 20px;
+		opacity: 1;
+	}
+
+	.eg-body.ng-hide-add.ng-hide-add-active , .eg-body.ng-hide-remove.ng-hide-remove-active {
+		-webkit-transition: all linear 0.5s;
+		transition: all linear 0.5s;
+	}
+
+	.eg-body.ng-hide {
+		line-height: 0;
+		opacity: 0;
+		padding: 0 10px;
+	}
+
+	.imgbox {
+		position: relative;
+		.imgbox:hover {
+			border-color: #428bca;
+		}
+
+		.desc {
+			bottom: 20px;
+			right: 40%;
+			position: absolute;
+			display: none;
+			color: blue;
+		}
+	}
+}
+

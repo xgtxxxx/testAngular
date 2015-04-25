@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN" class="no-js">
+<head>
+<title>test</title>
+<meta name="description" content="">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="bower_components/bootstrap/dist/css/bootstrap.css" />
+
+<link rel="stylesheet" href="styles/style.css" />
+</head>
+<body ng-app="angularApp">
+	<div class="container main-view">
+		<div class="col-md-2 sidebar">
+			<div class="panel panel-default">
+				<div class="panel-heading">Menu</div>
+				<div class="panel-body" ng-include="'views/sidebar.html'"></div>
+			</div>
+		</div>
+		<div class="col-md-10 content" ui-view></div>
+	</div>
+	
+	<!-- template -->
+	<ng-include src="'templates/modalTemplate.html'"></ng-include>
+	<ng-include src="'templates/alertTemplate.html'"></ng-include>
+	<ng-include src="'templates/confirmTemplate.html'"></ng-include>
+	
+	<!--start 依赖包 -->
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-animate/angular-animate.js"></script>
+	<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+	<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+	<script src="bower_components/angular-messages/angular-messages.js"></script>
+	<!--end 依赖包 -->
+
+	<!-- start 本地scripts -->
+	<script type="text/javascript" src="scripts/app.js"></script>
+	<script type="text/javascript" src="scripts/routes.js"></script>
+
+	<script type="text/javascript" src="scripts/controllers/home.js"></script>
+	<script type="text/javascript" src="scripts/controllers/declare.js"></script>
+	<script type="text/javascript" src="scripts/controllers/base.js"></script>
+	<script type="text/javascript" src="scripts/controllers/controller.js"></script>
+	<script type="text/javascript" src="scripts/controllers/serviceApi.js"></script>
+	<script type="text/javascript" src="scripts/controllers/serviceCustom.js"></script>
+	<script type="text/javascript" src="scripts/controllers/directive.js"></script>
+	<script type="text/javascript" src="scripts/controllers/others.js"></script>
+	<!-- end 本地scripts -->
+</body>
+</html>

@@ -1,0 +1,33 @@
+<div class="controller-page panel panel-default">
+	<div class="panel-heading">Controller</div>
+	<div class="panel-body">
+		<p>
+			注意：
+		</p>
+		<ul>
+			<li>
+				angular.module('angularApp', ['ui.router'])：这是在声明一个app，声明app时必须在[]里面加上需要依赖的包，即使没有依赖，也必须加上[]；
+			</li>
+			<li>
+				var app = angular.module('angularApp');这是在获取上面声明的名字为angularApp的app，这里不能加[]，否则就变成声明app了。
+			</li>
+			<li>
+				app.controller('ControllerCtrl',['$scope','$rootScope',function($scope,$rootScope):这里是声明一个controller，必须给controller命名，且不重名。必须在function前面加上依赖注入的service。
+			</li>
+			<li>每个controller都有自己的scope</li>
+			<li>每个controller的作用域下面还可以嵌套子controller</li>
+			<li>一个app只有一个$rootScope，每个子$scope都可以获取到$rootScope。</li>
+		</ul>
+		
+		<hr>
+		<p><strong>parent scope:</strong></p>
+		<p>$scope.$root===$rootScope : {{isEqual}}</p>
+		<p>rootData : {{rootData}}</p>
+		<p>my data : {{parentData}}</p>
+		<div ng-controller="ChildCtrl">
+			<p><strong>child scope:</strong></p>
+			<p>rootData : {{rootData}}</p>
+			<p>$scope.$parent : {{parentData}}</p>
+		</div>
+	</div>
+</div>
